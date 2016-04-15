@@ -30,7 +30,7 @@ module.exports = function (gruntOrShipit) {
       )
       .then(function (res) {
 
-        v = remote ? res[0].stdout : res.stdout;
+        v = (remote ? res[0].stdout : res.stdout).trim();
 
         return shipit[method](
           sprintf('. %s && nvm use %s && nvm alias default %s', shipit.config.nvm.sh, v, v)
